@@ -1,0 +1,89 @@
+{%extends 'orgchart/base.html'%}
+{% load static %}
+{%load poll_extras%}
+
+{%block activity_contact%}
+class='active'
+{%endblock%}
+
+{%block cart%}
+{{cart_no}}
+{%endblock%}
+
+{%block stl%}
+<style type="text/css">
+.sccs{
+    font-size: 25px;
+    color: rgb(248, 245, 248);
+    background-color: rgb(44, 43, 43);
+    padding-left: 5px;
+}
+.bx{
+    border: 3px solid rgb(44, 43, 43);
+    border-radius: 3px;
+    padding-bottom: 10px;
+}
+.od{
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 5px;
+}
+.pad-l{
+    padding-left: 20px;
+}
+.ttl{
+    color: rgb(168, 51, 31);
+}
+.sr>.fa {
+  padding-top: 4px;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
+.sr>.fa:hover {
+  opacity: 0.7;
+}
+.sr>.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+.sr>.fa-instagram {
+  background: #125688;
+  color: white;
+}
+.sr>.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+.lnk{
+    margin-left: 20px;
+}
+</style>
+{%endblock%}
+{%block home%}
+<div class="row">
+    <div class="col-md-8 col-md-push-2 bx">
+        <div class = 'row'>
+            <div class="col">
+                <p class="sccs">Contact Details :</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col sr">
+                <p class='od'></p>
+                <p class="pad-l">Name : Venkatesh Ramchandra Kamtham</p>
+                <p class="pad-l">Email : venkatesh.rkamtham.cer17@itbhu.ac.in</p>
+                <p class="pad-l">Contact no : +91 7379055487</p>
+                <p class="pad-l">Address : IIT BHU Varanasi</p>
+                <span class="lnk">Follow me On :</span>
+                <a href="https://www.linkedin.com/in/venkatesh-kamtham-377140155/" class="fa fa-linkedin"></a>
+                <a href="https://www.instagram.com/shrvenk123/" class="fa fa-instagram"></a>
+                <a href="https://www.facebook.com/venkatesh.kamtham.3/" class="fa fa-facebook"></a>
+            </div>
+        </div>
+    </div> 
+</div>
+{%endblock%}

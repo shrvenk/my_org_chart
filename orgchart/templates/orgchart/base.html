@@ -1,0 +1,189 @@
+{% load static %}
+{%load poll_extras%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Shrvenk</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Odibee+Sans|Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Odibee+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <style type="text/css">
+    .whole{
+        background-color: white;
+        margin-top: 30px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        height: 100px;
+    }
+    
+    body { 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    .shrvenk{
+        height: 73px;
+        width: 200px;
+        border-radius: 8px;
+    }
+    .marg{
+        margin-top: 20px;
+    }
+    .srh{
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    .acc{
+        width: 400px;
+        height: 150px;
+    }
+    .log_out>form{
+        display: flex;
+        justify-content: center;
+        text-align:center;
+        align-items: center;
+        margin-top: 5pt;
+        margin-bottom: 15pt;
+    }
+    .log_out>form>button{
+        padding-left: 50pt;
+        padding-right: 50pt;
+    }
+    .thank_you{
+        text-align: center;
+        margin-top: 30px;
+    }
+    .accnt{
+        margin-top: 10px;
+        background-color: rgb(99, 14, 133);
+        color: white;
+    }
+    .accnt:hover{
+        text-decoration: underline;
+    }
+    .navmag{
+        margin-top: 10px;
+    }
+    .plus{
+        font-size: 30px;
+        color: whitesmoke;
+    }
+    .pls{
+        margin-right: 10px;
+    }
+    .addre{
+        font-size: 10px;
+        color: tomato;
+        text-align: center;
+    }
+    .linkbx{
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+        padding-top :0px;
+    }
+    .navbar,.nav{
+        padding-top: 0px;
+    }
+    .sign_in,.create_account{
+        display: flex;
+        justify-content: center;
+        text-align:center;
+        align-items: center;
+        margin-top: 25px;
+    }
+    .sign_in>button{
+        padding-left: 50pt;
+        padding-right: 50pt;
+    }
+    .alert-box{
+        text-align: center;
+    }
+    .up{
+        height: 50px;
+        background-color: black;
+    }
+    .plus{
+        font-size: 30px;
+        margin-right: 50px;
+        color: whitesmoke;
+    }
+    .linkbx{
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+        padding-top :0px;
+    }
+    .bt{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .del{
+        margin-top: 8px;
+        padding: 0px;
+    }
+    .label{
+        color: rgb(170, 167, 167);
+        font-weight: lighter;
+        font-size: 15px;
+        margin-top: 15px;
+    }
+    </style>
+    {%block stl%}
+    {%endblock%}
+</head>
+<body>
+    <div class="container-fluid">
+                <div class = "row">
+                    <div class="col-md-8 col-md-push-2">
+                    <form role="form" method="POST">{% csrf_token %}
+                        <div class="active-pink-3 active-pink-4 mb-4">
+                            <input class="form-control srh" value='' name='str' type="text" placeholder="Search" aria-label="Search" >
+                            <span>Search by : </span>
+                            <button type="submit" class="btn btn-secondary bt" formaction="{%url 'search_name'%}">Name</button>
+                            <button type="submit" class="btn btn-secondary bt" formaction="{%url 'search_location'%}">location</button>
+                            <button type="submit" class="btn btn-secondary bt" formaction="{%url 'search_id'%}">Employee Id</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+                <div class="row navmag">
+                    <nav class="navbar navbar-inverse">
+                        <div class="container-fluid">
+                            <ul class="nav navbar-nav">
+                                <li {%block activity_home%}{%endblock%}><a href="{%url 'tree'%}">Hierarchy Tree</a> </li>
+                                <li {%block activity_contact%}{%endblock%}><a href="{%url 'contact'%}">Contact</a> </li>
+                                <li class="label">Delete : </li>
+                                <li> 
+                                <form role="form" method="POST" class="del" action="{%url 'delete_employee'%}">{% csrf_token %}
+                                    <div class="active-pink-3 active-pink-4 mb-4">
+                                        <input class="form-control" name='str' type="text" placeholder="Employee Id" aria-label="Search"> 
+                                    </div>
+                                </form>
+                                </li>
+                                <li><a href="{%url 'add_employee'%}" class="glyphicon glyphicon-plus plus linkbx"></a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                    
+                </div>
+                {%block home%}
+                {%endblock%}
+    </div>
+    <br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

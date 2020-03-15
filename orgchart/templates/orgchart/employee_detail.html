@@ -1,0 +1,68 @@
+{% extends 'orgchart/base.html' %}
+{% load static %}
+{%load poll_extras%}
+{%block activity_home%}
+class = 'active'
+{%endblock%}
+{%block stl%}
+<style type="text/css">
+.sccs{
+    font-size: 25px;
+    color: rgb(248, 245, 248);
+    background-color: rgb(44, 43, 43);
+    padding-left: 5px;
+}
+.bx{
+    border: 3px solid rgb(44, 43, 43);
+    border-radius: 3px;
+}
+.od{
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 15px;
+}
+.pad-l{
+    padding-left: 30px;
+    color: black;
+}
+.ttl{
+    color: rgb(168, 51, 31);
+}
+.pad-w{
+    font-size: 10px;
+    color: rgb(158, 14, 14);
+}
+.anc{
+    padding-left: 30px;
+}
+.small{
+    color: gray;
+}
+.p{
+    font-size: 10px;
+    color: black;
+}
+</style>
+{%endblock%}
+{%block home%}
+<div class="row">
+    <div class="col-md-6 col-md-push-3 bx">
+        <div class = 'row'>
+            <div class="col">
+                <p class="sccs">Employee Details <a class="btn btn-default" href="{% url 'detail_edit' pk=emp.emp_id %}" style="float: right;"><span class="glyphicon glyphicon-pencil"></span></a></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class='od'>{{emp.preferred_name}} {{emp.last_name}} <span class="pad-w">Working Under: <small class="p">{{emp.manager_id}} : {{emp.manager}} </small></span></p>
+                <p class="pad-l">Employee Id : <small>{{emp.emp_id}}</small></p>
+                <p class="pad-l">Phone number : <small>{{emp.work_phone}}</small></p>
+                <p class="pad-l">Email Id : <small>{{emp.personal_email}}</small></p>
+                <p class="pad-l">Location : <small>{{emp.location}}</small></p>
+                <p class="pad-l">Department : <small>{{emp.department}}</small></p>
+                <p class="pad-l ttl">Status : {{emp.status}}</p>
+            </div>
+        </div>
+    </div> 
+</div>
+{%endblock%}

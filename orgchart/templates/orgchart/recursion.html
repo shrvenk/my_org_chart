@@ -1,0 +1,23 @@
+{% load static %}
+{%load poll_extras%}
+
+
+
+{%if first in dic%}
+<ul>
+    {% for task in dic|get_item:first %}
+    <li>
+        <a href="{% url 'employee_detail' idi=task %}">
+            {%for template in total|in_category:task%}
+            {{template.preferred_name}} {{template.last_name}}
+            {%endfor%}
+        </a>
+        {% with first=task %}
+            {% include "orgchart/recursion.html" %}
+        {% endwith %}
+    </li>
+    {% endfor %}
+</ul>
+{%endif%}
+
+ 
