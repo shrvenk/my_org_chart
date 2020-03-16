@@ -10,3 +10,5 @@ Link for a video demo of the application : https://drive.google.com/file/d/1avAh
   * addition and deletion of employees in existing structure
   * searching the employees over name , location and employee id
   * consistant and high performance system
+
+![](https://github.com/shrvenk/my_org_chart/blob/master/Screenshot%20(869).png)
