@@ -28,15 +28,38 @@ def tree(request):
     content = urllib.request.urlopen(req)
     data = json.load(content)
     num = data['data']['data']
-    print(num)
-    s=1
-    k=0
     for item in num:
-        print("::::::",s)
-        s=s+1
         idi = item['id']
         print(idi)
         if detail.objects.filter(emp_id=idi).exists():
+            ext = detail.objects.get(emp_id=idi)
+            pivot = 0
+            if ext.status != item['status']:
+                ext.status = item['status']
+                pivot=1
+            if ext.preferred_name != item['preferred_name']:
+                ext.preferred_name = item['preferred_name']
+                pivot=1
+            if ext.last_name != item['last_name']:
+                ext.last_name = item['last_name']
+                pivot=1
+            if ext.work_phone != item['work_phone']:
+                ext.work_phone = item['work_phone']
+                pivot=1
+            if ext.personal_email != item['personal_email']:
+                ext.personal_email = item['personal_email']
+                pivot=1
+            if ext.location_url != item['location']['url']:
+                ext.location_url != item['location']['url']
+                pivot=1
+            if ext.department_url != item['department']['url']:
+                ext.department_url != item['department']['url']
+                pivot=1
+            if ext.manager_url != item['manager']['url']:
+                ext.manager_url != item['manager']['url'] 
+                pivot=1
+            if pivot:
+                ext.save()
             continue
         manager_url = item['manager']['url']
         post = detail()
@@ -55,6 +78,7 @@ def tree(request):
             post.personal_email = item['personal_email']
         print("2")
         location_url = item['location']['url']
+        post.location_url = location_url
         if location_url != None:
             loc = urllib.request.Request(url=location_url, headers=hed)
             loc2 = urllib.request.urlopen(loc)
@@ -63,6 +87,7 @@ def tree(request):
             post.location = string
         print("3")
         dept_url = item['department']['url']
+        post.department_url = dept_url
         if dept_url != None:
             dept = urllib.request.Request(url=dept_url, headers=hed)
             dept2 = urllib.request.urlopen(dept)
@@ -70,6 +95,7 @@ def tree(request):
             post.department = dept3['data']['name']
         print("4")
         manager_url = item['manager']['url']
+        post.manager_url = manager_url
         if manager_url == None:
             post.manager = "None"
             post.manager_id = "0"
@@ -88,9 +114,6 @@ def tree(request):
             post.manager = man3['data']['preferred_name'] + " " + man3['data']['last_name']
             post.manager_id = man3['data']['id']
         print("5")
-        if item['subordinates']['url'] != None:
-            post.subordinates_url = item['subordinates']['url']
-        print("6")
         post.save()
         print("inserted")
     total = detail.objects.all()
