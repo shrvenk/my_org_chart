@@ -9,6 +9,18 @@ Link for a video demo of the application : https://drive.google.com/file/d/1avAh
   * use of hashing ( dict(key=>list ()) ) to iterate over Hierarchy Tree structure
   * addition and deletion of employees in existing structure
   * searching the employees over name , location and employee id
-  * consistant and high performance system
+  * Scalable , consistant and goood performance system
+  
+  To start the app on your local server 
+  
+   * open command prompt and go to project directory
+   * turn on the virtual environment
+      > myvenv\Scripts\activate
+   * migrate the data
+      > python manage.py makemigrations
+      
+      > python manage.py migrate
+   * run the server
+      > python manage.py runserver
 
 ![](https://github.com/shrvenk/my_org_chart/blob/master/Screenshot%20(869).png)
