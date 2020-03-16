@@ -1,7 +1,7 @@
 # my_org_chart
 Name : Venkatesh Ramchandra Kamtham Roll no : 17035054 college : IIT BHU Varanasi
 
-Link for a video demo of the application : https://drive.google.com/file/d/1avAh8B8dDb7PgvF4PjC0fJvIrXuwyDAl/view?usp=sharing
+Link for a video demo of the application : https://drive.google.com/drive/folders/1D5nY1RDB8Sy4HIYmz4AzdZpip6a1D3_Z?usp=sharing
 
    Some key points:
   * Built using django framework
