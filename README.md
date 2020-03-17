@@ -9,7 +9,8 @@ Link for a video demo of the application : https://drive.google.com/drive/folder
   * use of hashing ( dict(key=>list ()) ) to iterate over Hierarchy Tree structure
   * addition and deletion of employees in existing structure
   * searching the employees over name , location and employee id
-  * Scalable , consistant and goood performance system
+  * detail info of each employee can be obtained by clicking on it
+  * consistant and good performance system
   
   To start the app on your local server 
   
